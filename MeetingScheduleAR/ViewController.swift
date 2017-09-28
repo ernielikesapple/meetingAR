@@ -24,10 +24,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene(named: "art.scnassets/Calendar.scn")!
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        sceneView.allowsCameraControl =  true
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.isPlaying = true
+    }
+    
+    func initCamera(){
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
