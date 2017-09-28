@@ -23,20 +23,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/Calendar.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
-        
         sceneView.allowsCameraControl =  true
         sceneView.autoenablesDefaultLighting = true
         sceneView.isPlaying = true
     }
     
     func initCamera(){
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +39,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Run the view's session
         sceneView.session.run(configuration)
+        addObject()
+    }
+    
+    
+    func addObject() {
+        let calendar = ARCalendar()
+        calendar.loadModal()
+        let appearPostion = SCNVector3Make(1, 1, 1)
+        calendar.position = appearPostion
+        
+        // add the calendar to the scene
+        sceneView.scene.rootNode.addChildNode(calendar)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,12 +59,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
+ 
     // MARK: - ARSCNViewDelegate
     
 /*
