@@ -95,6 +95,35 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
 */
+    // this method gets called each time ARKit detects what it considers to be a new plane.
+    // we get two pieces of infomation, node and anchor. The SCNNode instance is a SceneKit node that ARkit has created, it has some properties set like the orientation and position, then we get an anchor instance, this tells use more infomation about the particular anchor that has been found, such as the size and center of the plane.
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if !(anchor is ARPlaneAnchor) {
+            return
+        } else {
+            let arPlaneAnchor = anchor as! ARPlaneAnchor
+            // When a new plane is detected we create a new SceneKit plane to visualize it in 3D
+            let planeGeometry = SCNBox(width: CGFloat(arPlaneAnchor.extent.x),
+                                       height: 0.01,
+                                       length: CGFloat(arPlaneAnchor.extent.z),
+                                       chamferRadius: 0)
+            let transparentMaterial = SCNMaterial()
+            transparentMaterial.diffuse.contents = UIColor(white: 1.0, alpha: 0.0)
+            planeGeometry.materials = [transparentMaterial,transparentMaterial,transparentMaterial,transparentMaterial,transparentMaterial]
+            
+            let planeNode = SCNNode(geometry: planeGeometry)
+            planeNode.position = SCNVector3Make(0, -0.005, 0)
+            
+            // give the plane a physics body so that items we add to the scene interact with it
+            planeNode.physicsBody = SCNPhysicsBody(type: .kinematic,
+                                                   shape: SCNPhysicsShape(geometry: planeGeometry, options: nil))
+            
+            // [self.planes setObject:plane forKey:anchor.identifier];??
+            node.addChildNode(planeNode)
+        }
+    }
+    
+    
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         // Do something with the new transform
