@@ -28,6 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.allowsCameraControl =  true
         sceneView.autoenablesDefaultLighting = true
         sceneView.isPlaying = true
+         self.sceneView.debugOptions  = [.showConstraints, .showLightExtents, ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
     
     func initCamera(){
