@@ -32,6 +32,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func initCamera(){
+        let cameraNode = SCNNode()
+        // get the root camera
+        //cameraNode.camera = sceneView.scene.rootNode.camera
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3Make(0, 0, 10)
+        // place a custom camera
+        sceneView.scene.rootNode.addChildNode(cameraNode)
+    }
     }
     
     override func viewWillAppear(_ animated: Bool) {
