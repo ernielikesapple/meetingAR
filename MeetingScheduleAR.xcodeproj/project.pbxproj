@@ -15,7 +15,6 @@
 		6D8E0E641F7A321800042703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8E0E631F7A321800042703 /* Assets.xcassets */; };
 		6D8E0E671F7A321800042703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D8E0E651F7A321800042703 /* LaunchScreen.storyboard */; };
 		6D8E0E721F7A321800042703 /* MeetingScheduleARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E0E711F7A321800042703 /* MeetingScheduleARTests.swift */; };
-		6D8E0E7D1F7B764300042703 /* Calendar.scn in Resources */ = {isa = PBXBuildFile; fileRef = 6D8E0E7C1F7B764300042703 /* Calendar.scn */; };
 		6D8E0E7F1F7CD58000042703 /* ARCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E0E7E1F7CD58000042703 /* ARCalendar.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		6D8E0E6D1F7A321800042703 /* MeetingScheduleARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetingScheduleARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8E0E711F7A321800042703 /* MeetingScheduleARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingScheduleARTests.swift; sourceTree = "<group>"; };
 		6D8E0E731F7A321800042703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D8E0E7C1F7B764300042703 /* Calendar.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Calendar.scn; path = art.scnassets/Calendar.scn; sourceTree = "<group>"; };
 		6D8E0E7E1F7CD58000042703 /* ARCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCalendar.swift; sourceTree = "<group>"; };
 		87698834063B7BACBDFC1034 /* Pods-MeetingScheduleAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingScheduleAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingScheduleAR/Pods-MeetingScheduleAR.debug.xcconfig"; sourceTree = "<group>"; };
 		9CA1656AE8AFA91FF6DA7FC8 /* Pods-MeetingScheduleAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingScheduleAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingScheduleAR/Pods-MeetingScheduleAR.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 				6D8E0E631F7A321800042703 /* Assets.xcassets */,
 				6D8E0E651F7A321800042703 /* LaunchScreen.storyboard */,
 				6D8E0E681F7A321800042703 /* Info.plist */,
-				6D8E0E7C1F7B764300042703 /* Calendar.scn */,
 			);
 			path = MeetingScheduleAR;
 			sourceTree = "<group>";
@@ -215,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D8E0E7D1F7B764300042703 /* Calendar.scn in Resources */,
 				6D8E0E5D1F7A321800042703 /* art.scnassets in Resources */,
 				6D8E0E671F7A321800042703 /* LaunchScreen.storyboard in Resources */,
 				6D8E0E641F7A321800042703 /* Assets.xcassets in Resources */,
