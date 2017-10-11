@@ -24,10 +24,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/realCalBG.scn")!
-        
+        let calendarNode = ARCalendar()
+        calendarNode.loadModal(at: SCNVector3Make(0, 0, -5))
+        calendarNode.pivot = SCNMatrix4MakeRotation(.pi/2, 1, 0, 0)
+        sceneView.scene.rootNode.addChildNode(calendarNode)
         // Set the scene to the view
-        sceneView.scene = scene
         sceneView.allowsCameraControl =  true
     }
     

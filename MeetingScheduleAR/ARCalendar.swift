@@ -7,10 +7,10 @@
 //
 
 import ARKit
-
 class ARCalendar: SCNNode {
-    func loadModal() {
-        guard let virtualObjectScene = SCNScene(named: "art.scnassets/Calendar.scn") else {return}
+    
+    func loadModal(at position: SCNVector3) {
+        guard let virtualObjectScene = SCNScene(named: "art.scnassets/realCalBG.scn") else {return}
         let wrapperNode = SCNNode()
 
         // get all the nodes in the asset and add it into the wrapperNode
@@ -18,5 +18,6 @@ class ARCalendar: SCNNode {
             wrapperNode.addChildNode(child)
         }
         addChildNode(wrapperNode)
+        self.position = position
     }
 }
