@@ -9,20 +9,20 @@
 import UIKit
 import SceneKit
 import ARKit
+import CoreLocation
+import MapKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(rec:)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Set the view's delegate
         sceneView.delegate = self
-        
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
         // Create a new scene
         let calendarNode = ARCalendar()
         calendarNode.loadModal(at: SCNVector3Make(0, 0, -5))
@@ -30,14 +30,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(calendarNode)
         // Set the scene to the view
         sceneView.allowsCameraControl =  true
+        
+        sceneView.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -78,6 +78,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    // tap gesture handler
+    @objc
+    func handleTap(rec: UITapGestureRecognizer) {
+        if rec.state == .ended {
+            let location: CGPoint = rec.location(in: sceneView)
+            let hits = sceneView.hitTest(location, options: nil)
+            if !hits.isEmpty {
+                let tappedNode = hits.first?.node
+                print("===\(tappedNode)==")
+                print("1111111111")
+            } else {
+                print("222222222")
+            }
+        }
     }
 }
 
